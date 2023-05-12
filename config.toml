@@ -1,0 +1,9 @@
+base_url = "https://meters.sh"
+compile_sass = false
+build_search_index = false
+trailing_slash = false
+
+[markdown]
+highlight_code = true
+
+[extra]
