@@ -1,43 +1,56 @@
-<!DOCTYPE html>
-<html lang="en-gb">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A person's writings about things.">
-        <meta name="author" content="kilometers">
-        <title>{% block title %}meters.sh{% endblock title %}</title>
-        <link rel="stylesheet" href="{{ get_url(path="site.css") }}"/>
-        <script type="text/javascript" src="{{ get_url(path="csr.js") }}" defer></script>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <a href="/">meters.sh</a>
-                <a style="margin-left:auto" href="{{ get_url(path="resume.pdf") }}">Resume</a>
-            </nav>
-        </header>
+{% extends "base.html" %}
 
-        <main>
-            {% block content %}
-            {% for page in section.pages %}
-            <article>
-                <header>
-                    <h1>
-                        <a href="{{ page.permalink }}">{{ page.title }}</a>
-                    </h1>
-                    <p>
-                        {{ page.date }}
-                    </p>
-                </header>
+{% block content %}
 
-                {% if page.summary %}
-                <div class="content post-summary">
-                    {{ page.summary | markdown | safe }}
-                </div>
-                {% endif %}
-            </article>
-            {% endfor %}
-            {% endblock content %}
-        </main>
-    </body>
-</html>
+<main>
+    <section>
+        <h1>projects</h1>
+        <ul>
+            <li>
+                <a href="https://github.com/kil0meters/remu">remu</a><br>
+                <span>A RISC-V Linux virtual machine.</span>
+            </li>
+            <li>
+                <a href="https://snail.meters.sh">snail++</a> (<a href="https://github.com/kil0meters/snailplusplus">gh</a>) <br>
+                <span>An idle game.</span>
+            </li>
+            <li>
+                <a href="https://chicoacm.org">chicoacm.org</a> (<a href="https://github.com/kil0meters/acm">gh</a>) <br>
+                <span>A competitive programming website with determinstic timing.</span>
+            </li>
+            <li>
+                <a href="https://sketchnexus.com">SketchNexus</a><br>
+                <span>A competitive drawing website.</span>
+            </li>
+            <li>
+                <a href="https://ranker.meters.sh">Ranker</a><br>
+                <span>An elo-based ranking website.</span>
+            </li>
+            <li>
+                <a href="https://github.com/kil0meters/psilisp">psilisp</a><br>
+                <span>A simple scheme implementation.</span>
+            </li>
+            <li>
+                <a href="https://github.com/kil0meters/acolyte">acolyte</a><br>
+                <span>A combined web forum and streaming platform.</span>
+            </li>
+        </ul>
+    </section>
+
+    <aside>
+        <h1>post archive</h1>
+
+        {% for page in section.pages %}
+        <article>
+            <header style="display:flex;gap:1em;">
+                <a href="{{ page.permalink }}">{{ page.title }}</a>
+                <p>
+                    {{ page.date }}
+                </p>
+            </header>
+        </article>
+        {% endfor %}
+    </aside>
+</main>
+
+{% endblock content %}
