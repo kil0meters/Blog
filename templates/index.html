@@ -42,9 +42,9 @@
 
         {% for page in section.pages %}
         <article>
-            <header style="display:flex;gap:1em;">
+            <header style="display:flex;">
                 <a href="{{ page.permalink }}">{{ page.title }}</a>
-                <p>
+                <p style="margin-left:auto;">
                     {{ page.date }}
                 </p>
             </header>

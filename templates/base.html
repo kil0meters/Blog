@@ -9,11 +9,20 @@
     <meta name="author" content="Miles Benton">
     <title>{% block title %}meters.sh{% endblock title %}</title>
     <style>
+        html {
+            scrollbar-gutter: stable;
+        }
+
         body {
             margin: 1em auto;
             padding: 0.5em;
-            max-width: 50em;
+            width: 50em;
             font: 1.1em/1.62 serif;
+        }
+
+        code {
+            font-family: "Delugia Mono", "Cascadia Mono", "SF Mono", monospace;
+            font-size: 0.9em;
         }
 
         main {
